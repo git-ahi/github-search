@@ -20,7 +20,29 @@ export class SearchService {
       avatar_url: string;
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(environment.api + 'kwathuta').toPromise().then(response => {
+      this.http.get<ApiResponse>(environment.userApi + 'kwathuta').toPromise().then(response => {
+        this.user.photo = response.avatar_url
+        this.user.userName = response.login
+
+        resolve(response)
+      },
+        error => {
+          this.user.photo = "Avatar not found"
+          this.user.userName = "Username not found"
+
+          reject(error)
+        })
+    })
+    return promise
+  }
+
+  repoRequest() {
+    interface ApiResponse {
+      login: string;
+      avatar_url: string;
+    }
+    let promise = new Promise((resolve, reject) => {
+      this.http.get<ApiResponse>(environment.repoApi + 'kwathuta').toPromise().then(response => {
         this.user.photo = response.avatar_url
         this.user.userName = response.login
 
