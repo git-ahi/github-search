@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from "../user";
-import { Repo } from '../repo';
+
 import { SearchService } from "../search-service/search.service";
 
 @Component({
@@ -11,23 +11,18 @@ import { SearchService } from "../search-service/search.service";
 export class UsersComponent implements OnInit {
 
   user!: User;
-  repo: Repo[]=[];
-  result ='Akan'
+
+  result:string =''
 
   constructor(private searchService: SearchService) { }
 
-  searchRepo()  {
-    this.searchService.repoRequest(this.result).subscribe((response:any) => {
-      this.repo = response.items;
-      console.log(this.repo)
-      
-    })
+
+
+  searchUser() {
+    this.searchService.userRequest(this.result)
+    this.user = this.searchService.user
   }
 
   ngOnInit() {
-    this.searchService.userRequest()
-    this.user = this.searchService.user
-    console.log(this.user);
-    
-  }
+}
 }

@@ -11,18 +11,22 @@ export class SearchService {
   private formRepo:string = ''
   user!: User;
   repo!: Repo[];
+  private userName=''
 
   constructor(private http: HttpClient) {
     this.user = new User("", "");
   }
 
-  userRequest() {
+  userRequest(userName:string) {
+    this.userName=userName
+    console.log(this.userName);
+    
     interface ApiResponse {
       login: string;
       avatar_url: string;
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(environment.userApi + 'kwathuta').toPromise().then(response => {
+      this.http.get<ApiResponse>(environment.userApi +this.userName + '?access_token='+ environment.accessToken).toPromise().then(response => {
         this.user.photo = response.avatar_url
         this.user.userName = response.login
 

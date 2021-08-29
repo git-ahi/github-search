@@ -1,0 +1,10 @@
+<form>
+    <div class="mb-3">
+      <input type="email" class="form-control" placeholder="Search by Repo" [(ngModel)] = "repoName" name="repoName" (keyup)='searchRepo()'>
+
+      {{repoName}}
+    </div>
+    <p *ngFor= 'let rep of repo'>
+        {{rep.name}}
+    </p>
+  </form>

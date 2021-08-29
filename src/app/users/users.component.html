@@ -1,7 +1,13 @@
+<form>
+    <div class="mb-3">
+    <input type="email" class="form-control" placeholder="Search by User" [(ngModel)] = "result" name="result" (keyup)='searchUser()'>
+      {{result}}
+    </div>
+  </form>
+
 <p><img src="{{ user.photo }}" alt="" /></p>
 <p>{{ user.userName }}</p>
 <!-- <p>{{ repo.totalCount }}</p> -->
-<p *ngFor="let rep of repo">{{ rep.name }}
-    {{rep.url}}
-</p>
-<button (click)='searchRepo()'></button>
+<!-- <p *ngFor="let rep of repo">{{ rep.name }} -->
+    <!-- {{rep.url}} -->
+<!-- </p> -->
