@@ -1,0 +1,59 @@
+.main {
+    margin: 20vh auto;
+    padding: 80px 80px;
+    width: 90vh;
+    background: url(../../assets/img/circles.svg) no-repeat;
+    background-size: 70% 80%;
+    background-position: center right;
+    border: 1px solid rgba(255, 133, 110, 0.25);
+    box-shadow: 4px 4px 4px rgba(255, 133, 110, 0.25);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    margin-bottom: 70px;
+}
+
+.gradient-text{
+    background: linear-gradient(90deg, #EEA06B 0%, #FFD973 100%);
+    background-size: 100%;
+    background-clip: text;
+    color: transparent;
+}
+
+#heading {
+    display: inline;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+#sub-heading {
+    display: inline;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+
+#normal-text {
+    margin-left: 100px;
+    display: inline;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+button {
+    background: linear-gradient(90deg, #EEA06B 0%, #FFD973 100%);
+    border: none;
+    border-radius: 5px;
+    padding: 15px 50px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    color: #040D21;
+}
+
+#user {
+    margin-bottom: 20px;
+}
