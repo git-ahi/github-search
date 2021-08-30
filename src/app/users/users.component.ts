@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from "../user";
-import { UserRepo } from "../user-repo";
 
 import { SearchService } from "../search-service/search.service";
 
@@ -23,7 +22,6 @@ export class UsersComponent implements OnInit {
   }
 
   searchUserRepo() {
-    // console.log(this.searchService.userRepoRequest(this.result), "User data");
     
     this.searchService.userRepoRequest(this.result).subscribe((userRepos)=>{
       this.userRepos=userRepos

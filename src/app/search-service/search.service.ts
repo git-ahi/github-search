@@ -16,7 +16,7 @@ export class SearchService {
   userRepos:any;
 
   constructor(private http: HttpClient) {
-    this.user = new User("", "");
+    this.user = new User("", "", 0, 0, 0, "");
   }
 
   userRequest(userName:string) {
@@ -24,13 +24,21 @@ export class SearchService {
     console.log(this.userName);
     
     interface ApiResponse {
-      login: string;
+      name: string;
       avatar_url: string;
+      followers: number;
+      following: number;
+      public_repos:number;
+      bio: string;
     }
     let promise = new Promise((resolve, reject) => {
       this.http.get<ApiResponse>(environment.userApi +this.userName + '?access_token='+ environment.accessToken).toPromise().then(response => {
         this.user.photo = response.avatar_url
-        this.user.userName = response.login
+        this.user.userName = response.name
+        this.user.bio = response.bio
+        this.user.followers = response.followers
+        this.user.following = response.following
+        this.user.repos = response.public_repos
 
         resolve(response)
       },

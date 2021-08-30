@@ -1,10 +1,23 @@
-<form>
+<div class="main">
+  <div class="logo">
+    <p id="heading" class="gradient-text" >Github Search</p> <br>
+    <p id="sub-heading" class="gradient-text">Find any Github Repo in two easy steps!</p>
+  </div>
+  <p id="sub-heading" class="gradient-text">Start typing below to get results</p>
+  <form>
     <div class="mb-3">
-      <input type="email" class="form-control" placeholder="Search by Repo" [(ngModel)] = "repoName" name="repoName" (keyup)='searchRepo()'>
-
-      {{repoName}}
+      <input type="email" class="form-control" placeholder="Search by Repo" [(ngModel)] = "repoName" name="repoName" (keyup)='searchRepo()' autocomplete="off">
     </div>
-    <p *ngFor= 'let rep of repo'>
-        {{rep.name}}
-    </p>
+    <div class="list"></div>
+    <ul>
+      <li *ngFor= 'let rep of repo'>
+        <a target="_blank" href="{{rep.html_url}}">
+          <div class="list">
+            <h3>{{rep.name}}</h3> <br>
+            {{rep.description}}
+          </div>
+        </a>
+      </li>
+    </ul>
   </form>
+</div>

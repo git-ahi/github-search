@@ -1,3 +1,9 @@
-<p *ngFor = 'let repo of repos'>
-    {{repo.name}}
-</p>
+<ul>
+    <li *ngFor = 'let repo of repos'>
+        <a target="_blank" href="{{repo.html_url}}"><div class="list">
+            <h3>{{repo.name}}</h3> <br>
+            {{repo.description}}
+        </div>
+    </a>
+    </li>
+</ul>

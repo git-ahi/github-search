@@ -1,15 +1,22 @@
-<form>
-    <div class="mb-3">
-    <input type="email" class="form-control" placeholder="Search by User" [(ngModel)] = "result" name="result" (keyup)='searchUser()'>
-      {{result}}
+<div class="main">
+  <div class="logo">
+    <p id="heading" class="gradient-text" >Github Search</p> <br>
+    <p id="sub-heading" class="gradient-text">Find any Github Repo in two easy steps!</p>
+  </div>
+  <p id="sub-heading" class="gradient-text">Start typing below to get results</p>
+    <form>
+      <div class="mb-3">
+      <input type="email" class="form-control" placeholder="Username" [(ngModel)] = "result" name="result" (keyup)='searchUser()' autocomplete="off">
+      </div>
+    </form>
+    <div class="card">
+      <p><img src="{{ user.photo }}" alt="" /></p>
+      <p>Name: {{ user.userName }}</p>
+      <p>Bio: {{user.bio}}</p>
+      <p>Followers: {{user.followers}}</p>
+      <p>Following: {{user.following}}</p>
+      <p>Repositories: {{user.repos}}</p>
+      <button (click)= 'searchUserRepo()'>View Repos</button>
+      <app-user-repo [repos] = 'userRepos'></app-user-repo>
     </div>
-  </form>
-
-<p><img src="{{ user.photo }}" alt="" /></p>
-<p>{{ user.userName }}</p>
-<button (click)= 'searchUserRepo()'>View Repos</button>
-<app-user-repo [repos] = 'userRepos'></app-user-repo>
-<!-- <p>{{ repo.totalCount }}</p> -->
-<!-- <p *ngFor="let rep of repo">{{ rep.name }} -->
-    <!-- {{rep.url}} -->
-<!-- </p> -->
+</div>

@@ -1,3 +1,3 @@
 export class UserRepo {
-    constructor(public name:string, public url:string){}
+    constructor(public name:string, public html_url:string, public description:string){}
 }

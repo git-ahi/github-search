@@ -1,8 +1,6 @@
 export class Repo {
-    // name:string
-    // url:string
-    constructor(public name: string, public url: string) { 
-        this.name=name
-        this.url=url
+    constructor(public name: string, public html_url: string, public description:string) { 
+        // this.name=name
+        // this.url=url
     }
 }
