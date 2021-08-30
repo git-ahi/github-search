@@ -3,6 +3,7 @@ import { User } from '../user'
 import { HttpClient } from '@angular/common/http'
 import { environment } from "../../environments/environment";
 import { Repo } from '../repo'
+import { UserRepo } from "../user-repo";
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class SearchService {
   private formRepo:string = ''
   user!: User;
   repo!: Repo[];
-  private userName=''
+  private userName='';
+  userRepos:any;
 
   constructor(private http: HttpClient) {
     this.user = new User("", "");
@@ -41,6 +43,10 @@ export class SearchService {
     })
     return promise
   }
+
+userRepoRequest(result:string){
+  return this.http.get(environment.userApi +result + '/repos?access_token='+ environment.accessToken)
+}
 
   repoRequest(request:string) {
     this.formRepo = request
