@@ -32,7 +32,7 @@ export class SearchService {
       bio: string;
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(environment.userApi +this.userName + '?access_token='+ environment.accessToken).toPromise().then(response => {
+      this.http.get<ApiResponse>('https://api.github.com/users/' +this.userName).toPromise().then(response => {
         this.user.photo = response.avatar_url
         this.user.userName = response.name
         this.user.bio = response.bio
@@ -53,7 +53,7 @@ export class SearchService {
   }
 
 userRepoRequest(result:string){
-  return this.http.get(environment.userApi +result + '/repos?access_token='+ environment.accessToken)
+  return this.http.get('https://api.github.com/search/repositories?q=' +result + '/repos')
 }
 
   repoRequest(request:string) {
