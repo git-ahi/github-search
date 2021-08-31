@@ -53,7 +53,7 @@ export class SearchService {
   }
 
 userRepoRequest(result:string){
-  return this.http.get('https://api.github.com/search/repositories?q=' +result + '/repos')
+  return this.http.get('https://api.github.com/users/' +result + '/repos')
 }
 
   repoRequest(request:string) {
